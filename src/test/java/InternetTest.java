@@ -103,6 +103,7 @@ public class InternetTest {
         startButton.click();
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOf(helloWorld));
+
         Assert.assertTrue(helloWorld.isDisplayed());
     }
     @Test
@@ -111,6 +112,12 @@ public class InternetTest {
         SecureAreaPage secureAreaPage = loginPage.open().login("tomsmith", "SuperSecretPassword!");
         Assert.assertTrue(secureAreaPage.isAt());
 
+    }
+    @Test
+    public void canOpenABTestingPage(){
+        ABTestingPage aBTestingPage = new ABTestingPage(driver);
+        aBTestingPage.openABTesting();
+        Assert.assertTrue(aBTestingPage.isAtABTesting());
     }
 
 }
